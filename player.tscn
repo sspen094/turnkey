@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0fkjk7lmjgsm"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_5b41b"]
+[ext_resource type="Texture2D" uid="uid://nx5thaogxqhl" path="res://assets/graphics/player/player.png" id="1_obgmk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x8ynp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_obgmk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wsn0i"]
+radius = 8.0
+height = 20.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_5b41b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x8ynp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_wsn0i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.69
