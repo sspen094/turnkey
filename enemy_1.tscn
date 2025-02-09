@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7eyknt5qclwl"]
+[gd_scene load_steps=6 format=3 uid="uid://b7eyknt5qclwl"]
 
 [ext_resource type="Texture2D" uid="uid://b7sslo6gj1jd6" path="res://assets/graphics/enemy/enemy.png" id="1_gm0po"]
+[ext_resource type="Script" path="res://enemy_1.gd" id="1_hpk7c"]
 [ext_resource type="PackedScene" uid="uid://llag2073awvj" path="res://enemy_hitbox.tscn" id="2_ato8v"]
+[ext_resource type="PackedScene" uid="uid://bhih1gx1lxisb" path="res://enemy_key.tscn" id="3_skokv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yokoo"]
 size = Vector2(13.9998, 20)
 
 [node name="Enemy1" type="Node2D"]
+script = ExtResource("1_hpk7c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gm0po")
@@ -17,3 +20,6 @@ rotation = 0.00546393
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
 position = Vector2(-2.3842e-07, 3.71387e-10)
 shape = SubResource("RectangleShape2D_yokoo")
+
+[node name="EnemyKey" parent="." instance=ExtResource("3_skokv")]
+position = Vector2(11, 0)

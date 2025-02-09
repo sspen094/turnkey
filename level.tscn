@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bonxxvnykga5"]
+[gd_scene load_steps=7 format=4 uid="uid://bonxxvnykga5"]
 
 [ext_resource type="Texture2D" uid="uid://cu0381xsgqtne" path="res://assets/graphics/level/tilesets/level_tilemap.png" id="1_qasbn"]
 [ext_resource type="PackedScene" uid="uid://d0fkjk7lmjgsm" path="res://player.tscn" id="2_v5b4a"]
 [ext_resource type="PackedScene" uid="uid://b7eyknt5qclwl" path="res://enemy_1.tscn" id="3_p44i2"]
+[ext_resource type="PackedScene" uid="uid://c74xx0jq1wgno" path="res://enemy_2.tscn" id="4_jxodv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipyit"]
 texture = ExtResource("1_qasbn")
@@ -70,3 +71,6 @@ JUMP_VELOCITY = -300.0
 
 [node name="Enemy1" parent="." instance=ExtResource("3_p44i2")]
 position = Vector2(249, 54)
+
+[node name="enemy_2" parent="." instance=ExtResource("4_jxodv")]
+position = Vector2(401, 6)
