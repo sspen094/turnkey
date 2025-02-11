@@ -1,15 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7eyknt5qclwl"]
+[gd_scene load_steps=9 format=3 uid="uid://b7eyknt5qclwl"]
 
+[ext_resource type="Script" path="res://enemy.gd" id="1_14dgj"]
 [ext_resource type="Texture2D" uid="uid://b7sslo6gj1jd6" path="res://assets/graphics/enemy/enemy.png" id="1_gm0po"]
-[ext_resource type="Script" path="res://enemy_1.gd" id="1_hpk7c"]
 [ext_resource type="PackedScene" uid="uid://llag2073awvj" path="res://enemy_hitbox.tscn" id="2_ato8v"]
 [ext_resource type="PackedScene" uid="uid://bhih1gx1lxisb" path="res://enemy_key.tscn" id="3_skokv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yokoo"]
 size = Vector2(13.9998, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0f5j"]
+size = Vector2(20, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho643"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i37q"]
+
 [node name="Enemy1" type="Node2D"]
-script = ExtResource("1_hpk7c")
+script = ExtResource("1_14dgj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gm0po")
@@ -22,4 +29,31 @@ position = Vector2(-2.3842e-07, 3.71387e-10)
 shape = SubResource("RectangleShape2D_yokoo")
 
 [node name="EnemyKey" parent="." instance=ExtResource("3_skokv")]
-position = Vector2(11, 0)
+position = Vector2(11, -1)
+
+[node name="BorderArea" type="Area2D" parent="."]
+position = Vector2(0, 8)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderArea"]
+shape = SubResource("RectangleShape2D_n0f5j")
+
+[node name="LeftCliffArea" type="Area2D" parent="."]
+position = Vector2(-9, 11)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCliffArea"]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_ho643")
+
+[node name="RightCliffArea" type="Area2D" parent="."]
+position = Vector2(9, 11)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCliffArea"]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_5i37q")
+
+[connection signal="body_entered" from="BorderArea" to="." method="_on_border_area_body_entered"]
+[connection signal="body_exited" from="LeftCliffArea" to="." method="_on_left_cliff_area_body_exited"]
+[connection signal="body_exited" from="RightCliffArea" to="." method="_on_right_cliff_area_body_exited"]
