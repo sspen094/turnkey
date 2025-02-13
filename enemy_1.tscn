@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7eyknt5qclwl"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_14dgj"]
+[ext_resource type="Script" path="res://walkerEnemy.gd" id="1_f6tqn"]
 [ext_resource type="Texture2D" uid="uid://b7sslo6gj1jd6" path="res://assets/graphics/enemy/enemy.png" id="1_gm0po"]
 [ext_resource type="PackedScene" uid="uid://llag2073awvj" path="res://enemy_hitbox.tscn" id="2_ato8v"]
 [ext_resource type="PackedScene" uid="uid://bhih1gx1lxisb" path="res://enemy_key.tscn" id="3_skokv"]
@@ -16,7 +16,7 @@ size = Vector2(20, 2)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i37q"]
 
 [node name="Enemy1" type="Node2D"]
-script = ExtResource("1_14dgj")
+script = ExtResource("1_f6tqn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gm0po")

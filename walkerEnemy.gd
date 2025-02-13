@@ -1,20 +1,11 @@
-extends Node2D
+extends StaticEnemy
 
-@export var lives := 1
-@export var speed := 25
-var direction_x := -1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	check_lives()
 	move(delta)
 
-func check_lives():
-	if lives <= 0:
-		queue_free()
-		
-func lower_lives():
-	lives -= 1
 
 func move(delta):
 	position.x += speed * delta * direction_x
