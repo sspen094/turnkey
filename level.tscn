@@ -16,8 +16,6 @@ tile_set = ExtResource("2_sivsf")
 
 [node name="player" parent="." instance=ExtResource("2_v5b4a")]
 position = Vector2(98, 70)
-SPEED = 200.0
-JUMP_VELOCITY = -300.0
 
 [node name="Enemy1" parent="." instance=ExtResource("3_p44i2")]
 position = Vector2(263, 54)
@@ -33,3 +31,5 @@ position = Vector2(619, 109)
 [node name="Doorway" parent="." instance=ExtResource("5_3epm0")]
 position = Vector2(675, 97)
 sceneTo = "res://level_b.tscn"
+location_x = 19
+location_y = 113
